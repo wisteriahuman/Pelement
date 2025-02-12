@@ -1,22 +1,30 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import ElementCard, CompoundCard, ToolCard
-from .serializers import ElementCardSerializer, CompoundCardSerializer, ToolCardSerializer
+from .models import ElementCard, PureSubstanceCard, ToolCard
+from .serializers import (
+    ElementCardSerializer,
+    PureSubstanceCardSerializer,
+    ToolCardSerializer,
+)
 
 
 class AllCardView(APIView):
     def get(self, request):
         element_cards = ElementCard.objects.all()
-        compound_cards = CompoundCard.objects.all()
+        PureSubstance_cards = PureSubstanceCard.objects.all()
         tool_cards = ToolCard.objects.all()
         element_serializer = ElementCardSerializer(element_cards, many=True)
-        compound_cards = CompoundCardSerializer(compound_cards, many=True)
+        PureSubstance_cards = PureSubstanceCardSerializer(
+            PureSubstance_cards, many=True
+        )
         tool_cards = ToolCardSerializer(tool_cards, many=True)
-        return Response({
-            'element_cards': element_serializer.data,
-            'compound_cards': compound_cards.data,
-            'tool_cards': tool_cards.data,
-        })
+        return Response(
+            {
+                "element_cards": element_serializer.data,
+                "PureSubstance_cards": PureSubstance_cards.data,
+                "tool_cards": tool_cards.data,
+            }
+        )
 
 
 class ElementCardView(APIView):
@@ -26,10 +34,10 @@ class ElementCardView(APIView):
         return Response(serializer.data)
 
 
-class CompoundCardView(APIView):
+class PureSubstanceCardView(APIView):
     def get(self, request):
-        compound_cards = CompoundCard.objects.all()
-        serializer = CompoundCardSerializer(compound_cards, many=True)
+        PureSubstance_cards = PureSubstanceCard.objects.all()
+        serializer = PureSubstanceCardSerializer(PureSubstance_cards, many=True)
         return Response(serializer.data)
 
 

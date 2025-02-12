@@ -1,7 +1,9 @@
 from django.db import models
 
+
 class Element(models.Model):
     symbol = models.CharField(max_length=3, verbose_name='元素記号')
+    name = models.CharField(max_length=30, verbose_name='元素名')
     number = models.PositiveIntegerField(verbose_name='元素番号')
     atomic_mass = models.FloatField(verbose_name='原子量')
     period = models.PositiveIntegerField(verbose_name='周期')
