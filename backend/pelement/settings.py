@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'element.apps.ElementConfig',
+    'card.apps.CardConfig',
     'rest_framework',
 ]
 
