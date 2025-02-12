@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'element.apps.ElementConfig',
     'card.apps.CardConfig',
+    'player.apps.PlayerConfig',
+    'battle.apps.BattleConfig',
     'rest_framework',
 ]
 

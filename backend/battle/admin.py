@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Battle, BattleParticipant
 
-# Register your models here.
+
+admin.site.register(Battle)
+admin.site.register(BattleParticipant)
