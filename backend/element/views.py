@@ -9,7 +9,7 @@ class ElementView(APIView):
         elements = Element.objects.all()
         serializer = ElementSerializer(elements, many=True)
         return Response(serializer.data)
-    
+
 
 class ElementDetailView(APIView):
     def get(self, request, number):
